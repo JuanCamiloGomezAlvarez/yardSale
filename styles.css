@@ -286,6 +286,54 @@ body {
     font-weight: bold;
     height: 50px;
 }
+/*Estilos de las cards*/
+
+.cards-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, 220px);
+    place-content: center;
+    padding-top: 20px;
+}
+
+.product-card {
+    width: 210px;
+}
+
+.product-img {
+    width: 210px;
+    height: 210px;
+    border-radius: 20px;
+    object-fit: cover;
+    /*esta propiedad me permite darle ajuste a las imagenes para que se visualicen tal cual independiente del width y el height que le demos*/
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-info figure {
+    margin: 0;
+}
+
+.product-info div p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin: 0px 0px 0px 0px;
+}
+
+.product-info div p:nth-child(2) {
+    font-size: var(--sm);
+    margin: 0px 0px 0px 0px;
+    color: var(--very-light-pink);
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
 
 /*Estilos con media query*/
 @media (max-width:640px) {
@@ -300,11 +348,36 @@ body {
     .navbar-email {
         display: none;
     }
+
     .desktop-menu{
         display: none;
     }
+
     .product-detail {
         width: 100%;
+    }
+
+    .cards-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, 220px);
+    }
+
+    .product-card {
+        width: 220px;
+    }
+
+    .product-img {
+        width: 210px;
+        height: 210px;
+        border-radius: 20px;
+        object-fit: cover;
+        /*esta propiedad me permite darle ajuste a las imagenes para que se visualicen tal cual independiente del width y el height que le demos*/
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
     }
    
 }
