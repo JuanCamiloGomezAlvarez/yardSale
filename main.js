@@ -9,6 +9,7 @@ function toggleDesktopMenu(){
     //console.log("click")
     desktopMenu.classList.toggle("inactive")
     mobileMenu.classList.add("inactive")
+    shoppingCartContainer.classList.add("inactive")
     productDetail.classList.add("inactive")
 }
 /////////////////////////////////////////////////////////////////////////
@@ -22,20 +23,22 @@ menuBurger.addEventListener("click", toggleMobileMenu)
 
 function toggleMobileMenu(){
     mobileMenu.classList.toggle("inactive")
+    shoppingCartContainer.classList.add("inactive")
     productDetail.classList.add("inactive")
 }
 
 /////////////////////////////////////////////////////////////////////////
 
 const navShoppingCar = document.querySelector(".navbar-shopping-cart")
-const productDetail = document.querySelector(".product-detail")
+const shoppingCartContainer = document.querySelector("#shoppingCartContainer")
 
 navShoppingCar.addEventListener("click", toggleProducDetail)
 
 function toggleProducDetail(){
-    productDetail.classList.toggle("inactive")
+    shoppingCartContainer.classList.toggle("inactive")
     desktopMenu.classList.add("inactive")
     mobileMenu.classList.add("inactive")
+    productDetail.classList.add("inactive")
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -69,8 +72,6 @@ productList.push({
 
 const cardConstainer = document.querySelector(".cards-container")
 
-
-
 function renderProducts(arr){
     for (product of arr){
         const productCard = document.createElement("div")
@@ -79,6 +80,7 @@ function renderProducts(arr){
         const productImg = document.createElement("img")
         productImg.classList.add("product-img")
         productImg.setAttribute("src", product.img)
+        productImg.addEventListener("click", selectProductDetail)
     
         const productInfo = document.createElement("div")
         productInfo.classList.add("product-info")
@@ -103,6 +105,23 @@ function renderProducts(arr){
         productCard.appendChild(productInfo)
         cardConstainer.appendChild(productCard)
     }
+    
+}
+renderProducts(productList)
+
+///////////////////////////////////////////////////////////////////////
+
+const productDetail = document.querySelector("#productDetail")
+
+function selectProductDetail(){
+    productDetail.classList.toggle("inactive")
+    desktopMenu.classList.add("inactive")
+    mobileMenu.classList.add("inactive")
+    shoppingCartContainer.classList.add("inactive")
 }
 
-renderProducts(productList)
+const productDetailClosed = document.querySelector(".product-detail-close")
+productDetailClosed.addEventListener("click", closeProductDetail)
+function closeProductDetail(){
+    productDetail.classList.add("inactive")
+}
